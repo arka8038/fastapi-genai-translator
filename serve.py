@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
+import uvicorn
+
 
 import os
 from langserve import add_routes
@@ -34,5 +36,4 @@ add_routes(
     path = "/api/v1/translate")
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
